@@ -25,23 +25,22 @@
    		 public function destroy(){
       		$this->connexion = NULL;
     	}
-
     	// Fonction permettant de savoir si l'utilisateur est inscrit dans la base de donnnées
 
-    	public function estInscrit($pseudo) {
+    	public function estInscrit($login) {
     		try {
         		$stmt = $this->connexion->prepare("select * from joueurs where pseudo = ?;");
-        		$stmt->bindParam(1,$pseudo);
+        		$stmt->bindParam(1,$login);
         		$stmt->execute();
         		$result=$stmt->fetch(PDO::FETCH_ASSOC);
-        	if ($result["login"] != NUll) {
+        	if ($result["pseudo"] != NUll) {
           		return true;
         	} else {
        		   return false;
         	}
       	} catch(PDOException $e) {
       		$this->destroy();
-       		throw new PDOException("Erreur d'accès à la table Utilisateurs");
+       		throw new PDOException("Erreur d'accès à la table joueurs");
       }
     }
 
@@ -49,15 +48,15 @@
 
     	
 
-    	public function verifyPassword($pseudo,$mdp){
+    	public function verifyPassword($login,$password){
     		try {
-	        if ($this->estInscrit($pseudo)) {
+	        if ($this->estInscrit($login)) {
 	          $stmt = $this->connexion->prepare("select * from joueurs where pseudo = ?;");
-	          $stmt->bindParam(1,$pseudo);
+	          $stmt->bindParam(1,$login);
 	          $stmt->execute();
 	          $passUser = $stmt->fetch();
-	          $passwordUser = $passUser["pass"];
-	          if (crypt($mdp, $passwordUser) == $passwordUser) {
+	          $passwordUser = $passUser["motDePasse"];
+	          if (crypt($password, $passwordUser) == $passwordUser) {
 	            return true;
 	          } else {
 	            return false;
@@ -65,7 +64,7 @@
 	        }
 	      } catch(PDOException $e) {
 	        $this->destroy();
-	        throw new PDOException("Erreur d'accès à la table Utilisateurs");
+	        throw new PDOException("Erreur d'accès à la table joueurs");
 	      }
     }
 
@@ -73,14 +72,15 @@
     public function connexion() {
       try {
         if ($this->verifyPassword($_POST['login'],$_POST['pass'])) {
-          $stmt = $this->connexion->prepare('select * from Utilisateurs where pseudo = ?;');
+          $stmt = $this->connexion->prepare('select * from joueurs where pseudo = ?;');
           $stmt->bindParam(1,$_POST['login']);
           $stmt->execute();
+          return "ok";
           }
            return "ko";
       } catch (PDOException $e) {
         $this->destroy();
-        throw new PDOException("Erreur d'accès à la table Utilisateurs");
+        throw new PDOException("Erreur d'accès à la table Joueurs");
       }
     }
 

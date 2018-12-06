@@ -11,33 +11,38 @@ require_once PATH_MODELE."/dao/dao.php";
 
 	public function __construct() {
 		$this->vue = new vueAuthentification();
-		$this->modele = new Dao();
+		$this->modele = new dao();
 
 	}
-
+  //Affiche la page d'authentification
 	public function pageConnexion() {
 		$this->vue->genereVueConnexion();
 	}
+
+
+  //fonction permettant à un utilisateur de se connecter
  	public function connexionUser() {
       $_SESSION['user'] = $this->modele->connexion();
       if ($_SESSION['user'] != "ko") { // connexion réussie
         $_SESSION['id'] = $_POST['login'];
-        $_SESSION['validite'] = "ok";
-        $this->vue->genereVueJeu(); // Générer vue jeu si la connexion est réussie
+        $_SESSION['validite'] = "ok";        
+        /*return true; = pour utiliser plusieurs vues au lieu d'utiliser des fonctions dans une seule vue. Dans le routeur après conditionnelle : if connxeionUser() renvoie true alors on appelle la méthode jeu() pour générer la vue du jeu sinon si elle renvoie false alors on renvoie la page de connexion*/
+        $this->vue->genereVueJeu(0,0,0); // Générer vue jeu si la connexion est réussie
       } else { // echec connexion
         $_SESSION['validite'] = "ko";
-        $_SESSION['message'] = "Nom d'utilisateur ou mot de passe incorrect";
-        $this->pageConnexion();
+        $this->vue->genereVueConnexion();
+        
       }
     }
 
-    /* Deconnexion d'un utilisateur. */
+     /* Deconnexion d'un utilisateur. */
     public function deconnexionUser() {
       unset($_SESSION['user']);
       session_destroy();
       $this->vue->genereVueConnexion();
     }
-}
+  }
+
 
 
 

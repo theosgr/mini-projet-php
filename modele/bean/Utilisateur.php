@@ -4,17 +4,17 @@
 
 class Utilisateur{
 
-	private $pseudo;
-	private $motDePasse;
+	private $login;
+	private $pass;
 
 
 
-	public function getPseudo(){
-		return $this->$pseudo;
+	public function getLogin(){
+		return $this->$login;
 	}
 
-	public function getMdp(){
-		return $this->$motDePasse;
+	public function getPass(){
+		return $this->$pass;
 	}
 
 }

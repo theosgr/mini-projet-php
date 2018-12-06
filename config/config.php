@@ -11,8 +11,8 @@
 // DONNEES BASE DE DONNEE
   define("HOST","localhost");
 
-  define("BD","E174526C");
-  define("LOGIN","E174526C");
-  define("PASSWORD","E174526C");
+  define("BD","php");
+  define("LOGIN","root");
+  define("PASSWORD","");
 
 ?>
