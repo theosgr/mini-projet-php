@@ -1,0 +1,14 @@
+/* ====================== VUE AUTHENTIFICATION ==================== */
+.selected {
+  border: 1px solid var(--selected);
+  color: var(--selected);
+}
+a.city.selected:hover {
+  box-shadow: 0 0 10px rgba(170,0,0,0.7);
+  border: 1px solid var(--selected);
+  color: var(--selected);
+}
+
+p {
+	text-align:center;
+}

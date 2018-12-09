@@ -1,0 +1,59 @@
+/* ====================== VUE AUTHENTIFICATION ==================== */
+body {
+  text-align: center;
+  background: var(--bg);
+  color: var(--text);
+}
+a.city:hover{
+  text-decoration: none;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.size{
+  height: var(--size);
+  width: var(--size);
+}
+.city{
+  border-radius: 100%;
+  border: 1px solid var(--primary);
+  text-align: center;
+}
+.simple-horizontal{
+  margin-top: calc(var(--size)/2);
+  margin-bottom: calc(var(--size)/2 * -1);
+  border-top: 1px solid var(--bridges);
+}
+
+.double-horizontal{
+  margin-top: calc(var(--size)/2);
+  margin-bottom: calc(var(--size) / 2 * -1);
+  border-top: 4px double var(--bridges);
+}
+
+.simple-vertical{
+  margin-left: calc(var(--size)/2);
+  margin-right: calc(var(--size)/2 * -1);
+  border-left: 1px solid var(--bridges);
+}
+
+.double-vertical{
+  margin-left: calc(var(--size)/2);
+  margin-right: calc(var(--size) / 2 * -1);
+  border-left: 4px double var(--bridges);
+}
+.selected {
+  border: 1px solid var(--selected);
+  color: var(--selected);
+}
+a.city.selected:hover {
+  box-shadow: 0 0 10px rgba(135,206,235);
+  border: 1px solid var(--selected);
+  color: var(--selected);
+}
+
+h1 {
+	text-align:center;
+	color:white;
+	text-shadow:black 0em 0em 0.1em;
+}
+

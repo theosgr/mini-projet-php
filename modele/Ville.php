@@ -40,5 +40,16 @@ $this->nombrePonts=$nb;
 }
 
 //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
-
+// fonction pour lier les villes
+function ajouterBridge($ville){
+		if($this->villesLiees[$ville->getId()] < 2){ //Condition pour savoir si le nombre de villes liées est strictement inférieur à 2
+			$this->setNombrePonts($this->getNombrePonts()+1); // on ajoute un pont en incrémentant de 1 le nombre de pont 
+			$this->villesLiees[$ville->getId()]=$this->villesLiees[$ville->getId()]+1;	// on augmente de 1 à cause du pont ajouté
+		}
+		else{
+			$this->setNombrePonts($this->getNombrePonts()-2); // sinon si >= 2 alors on retire les 2 ponts existants
+			$this->villesLiees[$ville->getId()]=0; // on remet à 0 les villes liées
+		}
+	}
 }
+
