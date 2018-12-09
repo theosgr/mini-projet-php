@@ -81,21 +81,9 @@ class Villes{
 	}
 
 
-	function estTermine(){ // fonction pour savoir si le jeu est terminé ou pas
-		for ($i=0; $i < 7; $i++) {
-			for ($j=0; $j < 7; $j++) {
-				if($this->villes[$i][$j] instanceof Ville){
-					if($this->villes[$i][$j]->getNombrePontsMax() != $this->villes[$i][$j]->getNombrePonts()) {
-						return false;
-				}
-			}
-		}
-		
-	}
-	return true;
-}
 
-}
+	}
+
+
 
 ?>
-

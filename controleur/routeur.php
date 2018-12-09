@@ -37,19 +37,19 @@ class Routeur {
 			}
 			
 		}
-
 				   // DECONNEXION UTILISATEUR
 		if (isset($_GET['disconnect'])) {
 			$this->ctrlAuthentification->deconnexionUser();
 			return;
 		}
+
 			//DEFAULT
 		$this->ctrlAuthentification->pageConnexion();
 		return;
 	}
 
 
-}
+	}
 
 
-?>
+	?>

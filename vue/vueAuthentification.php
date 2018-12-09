@@ -13,6 +13,7 @@ class vueAuthentification {
 		<head>
 			<title>Authentification</title>
 			 <link rel="stylesheet" type="text/css" href="css/styles.css" />
+
 		</head>
 		<body>
 
@@ -140,6 +141,24 @@ class vueAuthentification {
 		}
 
 
+	public function genereResultats(){
+
+		?>
+		<!DOCTYPE html>
+		<html lang="fr">
+		<head>
+			<title>Résultats et statistiques</title>
+		</head>
+		<body>
+			<p> Perdu ou gagnée + statistiques + classement en fonction des stats</p>
+		</body>
+		</html>
+
+
+			<?php
+		}
+
+
 
 
 
@@ -149,5 +168,4 @@ class vueAuthentification {
 
 
 	?>
-
 
