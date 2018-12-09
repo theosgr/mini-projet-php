@@ -1,45 +1,62 @@
 <?php
 
 
-require_once 'controleur/ctrlAuthentification.php';
+require_once 'ctrl/ctrlAuthentification.php';
+require_once 'ctrl/ctrlBridge.php';
 
-	class Routeur {
 
-		private $ctrlAuthentification;
+class Routeur {
 
-		public function __construct(){
+	private $ctrlAuthentification;
+	private $ctrlBridge;
 
-			$this->ctrlAuthentification = new ControleurAuthentification();
+	public function __construct(){
 
-		}
+		$this->ctrlAuthentification = new ControleurAuthentification();
+		$this->ctrlBridge = new ControleurBridge();
+	}
 
-		public function routerRequete(){
+	public function routerRequete(){
 
 
 		//Gestion connexion User
 
-			if(isset($_GET['connexion'])){
-				// Connexion user
-				if($_GET['connexion'] == 1) {
-					$this->ctrlAuthentification->connexionUser();
-					return;
-				}
 
-				//charger page de connexion
-				if ($_GET['connexion'] == "") {
-	          		$this->ctrlAuthentification->connexion();
-	          		return;
-	        	}
-	      
+
+		if(isset($_GET['connexion'])){
+				// Connexion user
+			if($_GET['connexion'] == 1 && $this->ctrlAuthentification->connexionUser() == "ok") {
+				$this->ctrlBridge->jeu();
+				return;
 			}
 
+				//charger page de connexion
+			if ($_GET['connexion'] == "") {
+				$this->ctrlAuthentification->pageConnexion();
+				return;
+			}
+			
+		}
 
-
-
+				   // DECONNEXION UTILISATEUR
+		if (isset($_GET['disconnect'])) {
+			$this->ctrlAuthentification->deconnexionUser();
+			return;
 		}
 
 
-}
+
+			//Test
+			/*$this->ctrlJeu->jeu();
+			return;*/
+
+			//DEFAULT
+			$this->ctrlAuthentification->pageConnexion();
+			return;
+		}
 
 
-?>
+	}
+
+
+	?>
