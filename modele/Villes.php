@@ -46,31 +46,9 @@ class Villes{
 //rajout d'éventuelles méthodes
 
 	function ajouterBridge($x1,$y1,$x2,$y2){ // ajouter le bridge entre deux villes coordonnées x1 y1 et x2 y2 
-<<<<<<< HEAD
 		// On traite chaque cas de liens entre les villes pour savoir si la liaison est possible (même ordonées , même abscisses ect...)
 
-=======
->>>>>>> master
-
 	}
-
-<<<<<<< HEAD
-	function estTermine(){ // fonction pour savoir si le jeu est terminé ou pas
-		for ($i=0; $i < 7; $i++) {
-			for ($j=0; $j < 7; $j++) {
-				if($this->villes[$i][$j] instanceof Ville){
-					if($this->villes[$i][$j]->getNombrePontsMax() != $this->villes[$i][$j]->getNombrePonts()) {
-						return false;
-				}
-			}
-		}
-		
-	}
-	return true;
-}
-=======
-	}
->>>>>>> master
 
 	function estTermine(){ // fonction pour savoir si le jeu est terminé ou pas
 		for ($i=0; $i < 7; $i++) {

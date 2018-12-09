@@ -18,7 +18,6 @@ require_once PATH_MODELE."/Villes.php";
 
 
   public function jeu(){  //a implémenter
-<<<<<<< HEAD
    	$this->vue->genereVueJeu($this->bridge, 0,0);
   }
 
@@ -29,18 +28,6 @@ require_once PATH_MODELE."/Villes.php";
       echo "Vous avez gagné !";
     }
   }
-
-  
-
-=======
-   	$this->vue->genereVueJeu($this->bridge, -1, -1);
-  }
-
-  public function accueil(){
-  	// a implementer
-  }
-
->>>>>>> master
 }
 
 

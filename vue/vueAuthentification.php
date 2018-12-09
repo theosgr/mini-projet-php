@@ -42,13 +42,13 @@ class vueAuthentification {
 
 			?>
 
-<<<<<<< HEAD
+
 			<!DOCTYPE html>
 			<html lang="fr">
-=======
+
 		<!DOCTYPE html>
 		<html lang="fr">
->>>>>>> master
+
 			<head>
 				<title>Bridges</title>
 			</head>
@@ -57,7 +57,6 @@ class vueAuthentification {
 				<h1 action="vueAuthentification.php"><?php if (isset($_POST['login'])) echo 'Bienvenue dans le jeu ' . htmlspecialchars($_POST['login']);?></h1> <!-- message de bienvenue dans le jeu-->
 				<!-- boucle pour afficher le tableau et vérifications-->
 				<table>
-<<<<<<< HEAD
 					<?php
 					for($i=0; $i < 7 ;$i++){ //boucles pour la matrice
 						echo "<tr>";
@@ -103,44 +102,6 @@ class vueAuthentification {
 
 			</div="buttons">
 		</body>
-=======
-				<?php $cpt = 1;
-					for($i=0; $i < 7;$i++){ //boucles pour la matrice
-						echo "<tr>";
-						for($j = 0; $j < 7; $j++) {
-							if($villes->existe($i,$j)){ // on regarde si la ville existe aux différents index
-								if($villes->getVille($i,$j) instanceof Ville) { // on regard si la ville avec getVille() est une instance de ville
-									//affichage du tableau
-
-									echo "<td>$villes->getVilles($i,$j)->getNombrePontsMax();</td>";
-										  
-										  $cpt = $cpt+1; //numéroter les cases
-								}
-							}
-						}
-						echo "</tr>";
-				}
-				// POUR AFFICHER UNE VILLE IL FAUT AFFICHER LE NOMBRE DE PONTS MAX
-				?>
-			</table>
-				<div="buttons">
-					<form action="index.php" method="post"> 
-					
-						<input type="submit" name="disconnect" value="Déconnexion">
-					</form>
-					<br/>
-					<form action="index.php" method="post"> 
-						<input type="submit" name="restart" value="Recommencer la partie">
-					</form>
-					<br/>
-					<form action="index.php" method="post"> 
-						<input type="submit" name="stats" value="Voir les statistiques">
-					</form>
-					<br/>
-					 
-				</div="buttons">
-			</body>
->>>>>>> master
 		</html>
 
 
@@ -154,7 +115,7 @@ class vueAuthentification {
 	public function finLigne(){
 		echo "</tr";
 	}
-<<<<<<< HEAD
+
 
 	public function genereResultats(){
 
